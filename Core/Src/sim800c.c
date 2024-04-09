@@ -6,7 +6,7 @@
 #include "buffer.h"
 #include "led.h"
 
-UART_HandleTypeDef huart1;
+extern UART_HandleTypeDef huart1;
 
 #define recvBufferLen 1024
 #define sendBufferLen 1024

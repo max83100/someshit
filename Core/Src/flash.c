@@ -4,7 +4,7 @@
 #include "flash.h"
 #include "error_handler.h"
 
-SPI_HandleTypeDef hspi1;
+extern SPI_HandleTypeDef hspi1;
 
 #define CF_SIZE 524288
 #define PAGE_SIZE 256
