@@ -235,7 +235,7 @@ void SSD1306_DrawFilledCircle(int16_t x0, int16_t y0, int16_t r, SSD1306_COLOR_t
  *           - 0: LCD was not detected on I2C port
  *           - > 0: LCD initialized OK and ready to use
  */
-void ssd1306_I2C_Init();
+void ssd1306_I2C_Init(void);
 
 /**
  * @brief  Writes single byte to slave

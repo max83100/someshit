@@ -22,11 +22,16 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <string.h>
+#include <stdio.h>
 #include "led.h"
-#include "sim800c.h"
+#include "sim800.h"
 #include "macros.h"
 #include "error_handler.h"
 #include "flash.h"
+#include "ssd1306.h"
+#include "fonts.h"
+#include "ControllerSendData.h"
+#include "ControllerIndication.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -34,7 +39,7 @@
 typedef struct
 {
     uint8_t head[4];
-    char phone[PHONE_NUMBER_LENGTH];
+    Info_t  info;
     uint16_t checkSum;
 } Config_t;
 /* USER CODE END PTD */
@@ -61,11 +66,7 @@ TIM_HandleTypeDef htim4;
 UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
-Config_t config = {
-    .head = {'C','O','N','F'},
-    .phone = {0},
-    .checkSum = 0,
-};
+Config_t config;
 
 static const uint32_t version = 230610;
 
@@ -75,6 +76,7 @@ static struct
 } context = {
     .resetOrPowerOff = 0,
 };
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -87,7 +89,6 @@ static void MX_TIM4_Init(void);
 static void MX_USART1_UART_Init(void);
 /* USER CODE BEGIN PFP */
 static uint16_t getChecksum(void* buffer, uint32_t len);
-static Sim800C_OperationHandler_t operationHandler;
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -113,11 +114,11 @@ int main(void)
 
   /* USER CODE BEGIN Init */
   SystemClock_Config();
+  ControllerSendData_Config(&config.info);
   MX_GPIO_Init();
   Led_Init();
   MX_TIM4_Init();
   Flash_Init();
-  Sim800C_Init(operationHandler);
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -136,6 +137,10 @@ int main(void)
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
   Led_SetMode(LM_Started);
+
+  SSD1306_Init(); // initialize the display
+  HAL_GPIO_WritePin(GSM_POWER_GPIO_Port, GSM_POWER_Pin, GPIO_PIN_SET);
+  SIM800_Config();
   
   if (!Flash_Read(&config, 0, sizeof(config)))
       Led_SetMode(LM_Error);
@@ -143,12 +148,13 @@ int main(void)
   {
       Led_SetMode(LM_Warning);
       memcpy(config.head, "CONF", 4);
-      memset(config.phone, 0, sizeof(config.phone));
+      ControllerSendData_StartMemoryInit();
       config.checkSum = getChecksum(&config, sizeof(config)-2);
       Flash_Write(&config, 0, sizeof(config));
   }
   HAL_Delay(1100);
-  Sim800C_Power(true, 0);
+  ControllerSendData_Init();
+  
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -156,7 +162,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-    Sim800C_MainHandler();
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -400,7 +406,7 @@ static void MX_USART1_UART_Init(void)
 
   /* USER CODE END USART1_Init 1 */
   huart1.Instance = USART1;
-  huart1.Init.BaudRate = 38400;
+  huart1.Init.BaudRate = 9600;
   huart1.Init.WordLength = UART_WORDLENGTH_8B;
   huart1.Init.StopBits = UART_STOPBITS_1;
   huart1.Init.Parity = UART_PARITY_NONE;
@@ -438,7 +444,10 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, CS_Pin|WIRE2_Pin|WIRE_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, CS_Pin|GSM_POWER_Pin|WIRE2_Pin|WIRE_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(NOTHING_GPIO_Port, NOTHING_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, RESET_Pin|POWER_Pin, GPIO_PIN_RESET);
@@ -457,11 +466,19 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : RING_Pin */
-  GPIO_InitStruct.Pin = RING_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  /*Configure GPIO pin : GSM_POWER_Pin */
+  GPIO_InitStruct.Pin = GSM_POWER_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(RING_GPIO_Port, &GPIO_InitStruct);
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_MEDIUM;
+  HAL_GPIO_Init(GSM_POWER_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : NOTHING_Pin */
+  GPIO_InitStruct.Pin = NOTHING_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(NOTHING_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : RESET_Pin POWER_Pin */
   GPIO_InitStruct.Pin = RESET_Pin|POWER_Pin;
@@ -485,66 +502,7 @@ static uint16_t getChecksum(void* buffer, uint32_t len)
     return result;
 }
 
-static void processIncomeSms(void)
-{
-    char phone[PHONE_NUMBER_LENGTH];
-    char message[SMS_TEXT_BUFFER_LENGTH];
-    memset(phone, 0, sizeof(phone));
-    memset(message, 0, sizeof(message));
-    if (!Sim800C_GetSms(phone, message))
-        return;
-    
-    if (!memcmp(phone, config.phone, PHONE_NUMBER_LENGTH))
-    {
-        //TODO Обработка команд с зарегистрированного номера
-        
-        
-    }else if (!memcmp(message, "REG", 3))
-    {
-        char imei[IMEI_LENGTH];
-        memset(imei, 0, sizeof(imei));
-        Sim800C_GetImei(imei);
-        
-        uint8_t imeiLen = strlen(imei);
-        if (memcmp(&message[4], &imei[imeiLen-6], 6))
-            return;
-        
-        memcpy(config.phone, phone, PHONE_NUMBER_LENGTH);
-        config.checkSum = getChecksum(&config, sizeof(config)-2);
-        Flash_Write(&config, 0, sizeof(config));
-        
-        //Sim800C_SendSms(config.phone, "BeeHive Registered");
-    }
-}
 
-static void operationHandler(Sim800C_Operation_t operation, uint32_t state)
-{
-    if (state != (Sim800C_S_On | Sim800C_S_Ready))
-    {
-        if (context.resetOrPowerOff)
-            Sim800C_Power(false, 60000);
-        else
-            Sim800C_Reset();
-        context.resetOrPowerOff = (context.resetOrPowerOff+1)%2;
-        return;
-    }
-    context.resetOrPowerOff = 0;
-    
-    switch(operation)
-    {
-    case Sim800C_O_Starting:
-        Sim800C_RequestImei();
-        break;
-    case Sim800C_O_RequestImei:
-        Sim800C_ClearMessages();
-        break;
-    case Sim800C_O_IncomeSms:
-        processIncomeSms();
-        break;
-    default:
-        break;
-    }
-}
 /* USER CODE END 4 */
 
 /**
@@ -554,12 +512,12 @@ static void operationHandler(Sim800C_Operation_t operation, uint32_t state)
 //void Error_Handler(void)
 //{
 //  /* USER CODE BEGIN Error_Handler_Debug */
-//  /* User can add his own implementation to report the HAL error return state */
-//  Led_SetMode(LM_Error);
-//  __disable_irq();
-//  while (1)
-//  {
-//  }
+////  /* User can add his own implementation to report the HAL error return state */
+////  Led_SetMode(LM_Error);
+////  __disable_irq();
+////  while (1)
+////  {
+////  }
 //  /* USER CODE END Error_Handler_Debug */
 //}
 

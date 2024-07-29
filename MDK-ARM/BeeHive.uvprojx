@@ -81,7 +81,7 @@
           </BeforeMake>
           <AfterMake>
             <RunUserProg1>0</RunUserProg1>
-            <RunUserProg2>0</RunUserProg2>
+            <RunUserProg2>1</RunUserProg2>
             <UserProg1Name></UserProg1Name>
             <UserProg2Name></UserProg2Name>
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
@@ -110,7 +110,7 @@
         </CommonProperty>
         <DllOption>
           <SimDllName>SARMCM3.DLL</SimDllName>
-          <SimDllArguments> -REMAP</SimDllArguments>
+          <SimDllArguments>-REMAP</SimDllArguments>
           <SimDlgDll>DCM.DLL</SimDlgDll>
           <SimDlgDllArguments>-pCM3</SimDlgDllArguments>
           <TargetDllName>SARMCM3.DLL</TargetDllName>
@@ -394,21 +394,6 @@
           <GroupName>Application/User/Core</GroupName>
           <Files>
             <File>
-              <FileName>main.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../Core/Src/main.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f1xx_it.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../Core/Src/stm32f1xx_it.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f1xx_hal_msp.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../Core/Src/stm32f1xx_hal_msp.c</FilePath>
-            </File>
-            <File>
               <FileName>main.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\Core\Inc\main.h</FilePath>
@@ -432,16 +417,6 @@
               <FileName>led.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Core\Src\led.c</FilePath>
-            </File>
-            <File>
-              <FileName>sim800c.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Core\Src\sim800c.c</FilePath>
-            </File>
-            <File>
-              <FileName>sim800c.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\Core\Inc\sim800c.h</FilePath>
             </File>
             <File>
               <FileName>error_handler.h</FileName>
@@ -477,6 +452,91 @@
               <FileName>flash.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Core\Src\flash.c</FilePath>
+            </File>
+            <File>
+              <FileName>fonts.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\fonts.c</FilePath>
+            </File>
+            <File>
+              <FileName>ssd1306.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\ssd1306.c</FilePath>
+            </File>
+            <File>
+              <FileName>fonts.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Core\Inc\fonts.h</FilePath>
+            </File>
+            <File>
+              <FileName>ssd1306.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Core\Inc\ssd1306.h</FilePath>
+            </File>
+            <File>
+              <FileName>ControllerSendData.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Core\Inc\ControllerSendData.h</FilePath>
+            </File>
+            <File>
+              <FileName>ControllerIndication.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Core\Inc\ControllerIndication.h</FilePath>
+            </File>
+            <File>
+              <FileName>ControllerSendData.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\ControllerSendData.c</FilePath>
+            </File>
+            <File>
+              <FileName>ControllerIndication.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\ControllerIndication.c</FilePath>
+            </File>
+            <File>
+              <FileName>sim800.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Core\Inc\sim800.h</FilePath>
+            </File>
+            <File>
+              <FileName>sim800.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\sim800.c</FilePath>
+            </File>
+            <File>
+              <FileName>PDUConvert.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Core\Inc\PDUConvert.h</FilePath>
+            </File>
+            <File>
+              <FileName>PDUConvert.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\PDUConvert.c</FilePath>
+            </File>
+            <File>
+              <FileName>main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Core/Src/main.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f1xx_it.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Core/Src/stm32f1xx_it.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f1xx_hal_msp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Core/Src/stm32f1xx_hal_msp.c</FilePath>
+            </File>
+            <File>
+              <FileName>ControllerSMSCommand.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Core\Inc\ControllerSMSCommand.h</FilePath>
+            </File>
+            <File>
+              <FileName>ControllerSMSCommand.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\ControllerSMSCommand.c</FilePath>
             </File>
           </Files>
         </Group>

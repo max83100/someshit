@@ -50,7 +50,7 @@ extern "C" {
 /* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/
-//void Error_Handler(void);
+void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
 
@@ -67,8 +67,10 @@ extern "C" {
 #define MOSI_GPIO_Port GPIOA
 #define CS_Pin GPIO_PIN_0
 #define CS_GPIO_Port GPIOB
-#define RING_Pin GPIO_PIN_8
-#define RING_GPIO_Port GPIOA
+#define GSM_POWER_Pin GPIO_PIN_15
+#define GSM_POWER_GPIO_Port GPIOB
+#define NOTHING_Pin GPIO_PIN_8
+#define NOTHING_GPIO_Port GPIOA
 #define UTX_Pin GPIO_PIN_9
 #define UTX_GPIO_Port GPIOA
 #define URX_Pin GPIO_PIN_10

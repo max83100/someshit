@@ -109,7 +109,7 @@ void Sim800C_Init(Sim800C_OperationHandler_t operationHandler)
     Buffer_Init(&context.sendBuffer, sendBufferData, sendBufferLen);
     
     huart1.Instance = USART1;
-    huart1.Init.BaudRate = 38400;
+    huart1.Init.BaudRate = 115200;
     huart1.Init.WordLength = UART_WORDLENGTH_8B;
     huart1.Init.StopBits = UART_STOPBITS_1;
     huart1.Init.Parity = UART_PARITY_NONE;
@@ -270,17 +270,19 @@ void Sim800C_MainHandler(void)
             }
             else if (len > 5 && !memcmp(context.recvBuffer.data, "ERROR", 5))
                 setError(Sim800C_S_Error);
-            else if (len > 12 && !memcmp(context.recvBuffer.data, "+CMTI: \"SM\",", 12))
+            else if (len > 7 && !memcmp(context.recvBuffer.data, "+CMT: \"", 7))
             {
-                if (memcmp(&context.recvBuffer.data[len-6], "PUSH\"", 5))
+                if (len > 21 && (!memcmp(context.recvBuffer.data + 7, "+", 1) || !memcmp(context.recvBuffer.data + 7, "8", 1)))
                 {
+                    memcpy(context.phone, context.recvBuffer.data + 7, !memcmp(context.recvBuffer.data + 7, "+", 1) ? 12 : 11);
+                    HAL_UART_Transmit(&huart1,"GotNum",sizeof("GotNum"),10);
                     context.smsNumber = atoi((const char*)&context.recvBuffer.data[12]);
                     context.operation = Sim800C_O_IncomeSms;
                     context.internalState = IS_ReadSms;
                 }
                 processed = true;
             }else if (len > 12 && !memcmp(context.recvBuffer.data, "+CMGR: \"REC ", 12) && context.operation == Sim800C_O_IncomeSms &&
-                      context.internalState == IS_ReadSms)
+                      context.internalState == IS_ReadSms && 0)
             {
                 do
                 {

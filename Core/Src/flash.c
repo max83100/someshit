@@ -18,7 +18,7 @@ static void setCs(bool state);
 static bool resetProtection(void);
 static bool writeToBlock(const uint8_t* buffer, uint32_t offset, uint32_t size);
 static bool eraseBlock(uint32_t address);
-static bool writePage(const uint8_t* buffer, uint32_t address);
+static bool writePage(uint8_t* buffer, uint32_t address);
 static void shortDelay(void);
 
 void Flash_Init(void)
@@ -157,7 +157,7 @@ static bool eraseBlock(uint32_t address)
     return result;
 }
 
-static bool writePage(const uint8_t* buffer, uint32_t address)
+static bool writePage(uint8_t* buffer, uint32_t address)
 {
     bool state = true;
     if (!resetProtection())

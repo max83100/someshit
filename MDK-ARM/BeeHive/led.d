@@ -7,11 +7,11 @@ beehive\led.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h
 beehive\led.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h
 beehive\led.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h
 beehive\led.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h
-beehive\led.o: C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm3.h
+beehive\led.o: ../Drivers/CMSIS/Include/core_cm3.h
 beehive\led.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-beehive\led.o: C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h
-beehive\led.o: C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h
-beehive\led.o: C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h
+beehive\led.o: ../Drivers/CMSIS/Include/cmsis_version.h
+beehive\led.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
+beehive\led.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
 beehive\led.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h
 beehive\led.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 beehive\led.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
