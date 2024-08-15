@@ -35,8 +35,8 @@ beehive\sim800.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h
 beehive\sim800.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
 beehive\sim800.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 beehive\sim800.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
-beehive\sim800.o: ../Core/Inc/ControllerIndication.h
 beehive\sim800.o: ../Core/Inc/ControllerSendData.h
 beehive\sim800.o: ../Core/Inc/sim800c.h
 beehive\sim800.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+beehive\sim800.o: ../Core/Inc/ControllerIndication.h
 beehive\sim800.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h

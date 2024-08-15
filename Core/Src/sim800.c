@@ -18,9 +18,12 @@ SIM800_Handle_t sim800h = {0};
 
 static uint8_t myPDUSucc = 0;
 static uint8_t myCommandsCount = 0;
+static uint8_t mySMSGot = 0;
 
 static bool addCommand(char* theText);
 static bool addNumber(char* theNumber);
+
+SIM800_Commands_t SIM800_Commands[30];
 
 void itoa(int num, char *str, int radix)
 {
@@ -597,34 +600,65 @@ void SIM800_MessageHandler(SIM800_Handle_t *handle)
     }
     else
     {
-        for (uint32_t i = 0; i < EXPECTED_CODES_MAX_COUNT; i++)
+        if(!strncmp(handle->rxBuffer, "+CMGL", 5))
         {
-            if (handle->expected_codes[i].state == SIM800_WaitingFor)
+            char* aNumber = strstr(handle->rxBuffer, "UNREAD");
+            if(aNumber != NULL)
             {
-                if (!strncmp(handle->rxBuffer, handle->expected_codes[i].code, handle->expected_codes[i].code_length))
+                aNumber = aNumber + 9;
+                Number_t* aNumbersList = ControllerSendData_GetInfo()->Numbers;
+                
+                for(uint8_t anInd = 0; anInd < NUMBER_AMOUNT; ++anInd)
                 {
-                    // Store the data in the corresponding buffer
-                    strcpy(handle->expected_codes[i].data, handle->rxBuffer);
-
-                    // Update the current processed packet index
-                    handle->curProccesPacket_index = i;
-
-                    // Set the received status to SIM800_Received
-                    handle->expected_codes[i].state = SIM800_Received;
-
-                    flag = 0;
-
-                    // Invoke the associated handler if available
-                    if (handle->expected_codes[i].handle != NULL)
+                    if(!strncmp(aNumbersList[anInd], aNumber, CPHONE_NUMBER_LENGTH - 1))
                     {
-                        handle->expected_codes[i].handle(handle, i);
+                        addNumber(aNumber);
+                        mySMSGot = 1;
+                        break;
                     }
                 }
-
-                counter++;
-                if (counter >= handle->expected_codes_count)
+            }
+        }
+        else if (mySMSGot)
+        {
+            if(addCommand(handle->rxBuffer))
+                myCommandsCount++;
+            else
+                memset(SIM800_Commands[myCommandsCount].Number, 0, CPHONE_NUMBER_LENGTH);
+            
+            mySMSGot = 0;
+        }
+        else
+        {
+            for (uint32_t i = 0; i < EXPECTED_CODES_MAX_COUNT; i++)
+            {
+                if (handle->expected_codes[i].state == SIM800_WaitingFor)
                 {
-                    break; // Exit the loop when all expected codes have been processed
+                    if (!strncmp(handle->rxBuffer, handle->expected_codes[i].code, handle->expected_codes[i].code_length))
+                    {
+                        // Store the data in the corresponding buffer
+                        strcpy(handle->expected_codes[i].data, handle->rxBuffer);
+            
+                        // Update the current processed packet index
+                        handle->curProccesPacket_index = i;
+            
+                        // Set the received status to SIM800_Received
+                        handle->expected_codes[i].state = SIM800_Received;
+            
+                        flag = 0;
+            
+                        // Invoke the associated handler if available
+                        if (handle->expected_codes[i].handle != NULL)
+                        {
+                            handle->expected_codes[i].handle(handle, i);
+                        }
+                    }
+            
+                    counter++;
+                    if (counter >= handle->expected_codes_count)
+                    {
+                        break; // Exit the loop when all expected codes have been processed
+                    }
                 }
             }
         }
@@ -1056,7 +1090,7 @@ static bool addNumber(char* theNumber)
     if(myCommandsCount == 30)
         return false;
     
-    memcpy(SIM800_Commands[myCommandsCount].Number, theNumber, sizeof(Number_t));
+    memcpy(SIM800_Commands[myCommandsCount].Number, theNumber, CPHONE_NUMBER_LENGTH-1);
 }
 
 static bool addCommand(char* theText)

@@ -40,7 +40,7 @@ ControllerSMS_Commands ControllerSMSCommand_CheckCommand(char* theMessage)
     for(uint8_t anInd = 0; anInd < CSMS_COUNTOFCOMM; ++anInd)
     {
         if(strstr(theMessage, CSMS_TextComm[anInd]) == theMessage)
-            return anInd;  
+            return (ControllerSMS_Commands)anInd;  
     }
     return CSMS_NONE;
 }
@@ -50,7 +50,7 @@ ControllerSMS_Errors ControllerSMSCommand_Perform(char* theMessage, char* theNum
     ControllerSMS_Commands aCommand = ControllerSMSCommand_CheckCommand(theMessage);
     if(aCommand == CSMS_NONE)
     {
-        PDUConvert_InvalidSettings();
+        PDUConvert_InvalidSettings(theNumber);
         return CSMSE_InvalidCommand;
     }
     
@@ -66,7 +66,7 @@ ControllerSMS_Errors ControllerSMS_time(char* theMessage, char* theNumber)
         {
             if(aHour <= 48)
             {
-                ControllerSendData_GetInfo()->TimeInterval = 3600 * aHour;
+                ControllerSendData_GetInfo()->TimeInterval =  aHour;
                 if(!PDUConvert_IntervalIsSet(theNumber, theMessage + 5))
                     return CSMSE_CantAnswer;
                 return CSMSE_OK;
@@ -77,5 +77,32 @@ ControllerSMS_Errors ControllerSMS_time(char* theMessage, char* theNumber)
     return CSMSE_WrongParameters;
 }    
 
-ControllerSMS_Errors ControllerSMS_addphone(char* theMessage, char* theNumber);
+ControllerSMS_Errors ControllerSMS_addphone(char* theMessage, char* theNumber)
+{
+    return CSMSE_WrongParameters;
+}
 
+ControllerSMS_Errors ControllerSMS_zqrx(char* theMessage, char* theNumber)
+{
+    return CSMSE_WrongParameters;
+}
+
+ControllerSMS_Errors ControllerSMS_delphone(char* theMessage, char* theNumber)
+{
+    return CSMSE_WrongParameters;
+}
+
+ControllerSMS_Errors ControllerSMS_numbers(char* theMessage, char* theNumber)
+{
+    return CSMSE_WrongParameters;
+}
+
+ControllerSMS_Errors ControllerSMS_dataset(char* theMessage, char* theNumber)
+{
+    return CSMSE_WrongParameters;
+}
+
+ControllerSMS_Errors ControllerSMS_status(char* theMessage, char* theNumber)
+{
+    return CSMSE_WrongParameters;
+}

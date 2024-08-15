@@ -62,7 +62,7 @@ void ControllerSendData_Init()
             {
                 if(ControllerSMSCommand_CheckCommand(myMessage.text) == CSMS_TIME && strcmp(myMessage.sender, myInfo->Numbers[0]) == 0)
                 {
-                    if(ControllerSMSCommand_Perform(myMessage.text))
+                    if(ControllerSMSCommand_Perform(myMessage.text, myMessage.sender))
                        PDUConvert_InvalidSettings(myInfo->Numbers[0]);
                     else
                         isSetInterval = 1;

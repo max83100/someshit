@@ -37,12 +37,12 @@ beehive\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 beehive\main.o: ../Core/Inc/led.h
 beehive\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 beehive\main.o: ../Core/Inc/sim800.h
+beehive\main.o: ../Core/Inc/ControllerSendData.h
+beehive\main.o: ../Core/Inc/sim800c.h
 beehive\main.o: ../Core/Inc/macros.h
 beehive\main.o: ../Core/Inc/error_handler.h
 beehive\main.o: ../Core/Inc/flash.h
 beehive\main.o: ../Core/Inc/ssd1306.h
 beehive\main.o: ../Core/Inc/fonts.h
 beehive\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-beehive\main.o: ../Core/Inc/ControllerSendData.h
-beehive\main.o: ../Core/Inc/sim800c.h
 beehive\main.o: ../Core/Inc/ControllerIndication.h

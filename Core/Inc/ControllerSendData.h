@@ -6,6 +6,7 @@
 
 #define DATA_AMOUNT   24
 #define NUMBER_AMOUNT  5
+#define CPHONE_NUMBER_LENGTH 13
 
 #define CONTROLLERSENDDATA_NUMBERS_BYTESIZE      (sizeof(Number_t) * NUMBER_AMOUNT)
 #define CONTROLLERSENDDATA_NUMBERAMOUNT_BYTESIZE (sizeof(uint8_t))
@@ -13,7 +14,7 @@
 
 #define CONTROLLERSENDDATA_RECORDBYTESIZE         (CONTROLLERSENDDATA_DATA_RECORDPOS + CONTROLLERSENDDATA_DATA_BYTESIZE)
 
-typedef char Number_t[PHONE_NUMBER_LENGTH];
+typedef char Number_t[CPHONE_NUMBER_LENGTH];
 
 typedef struct
 {
@@ -29,7 +30,7 @@ typedef struct
 {
     Number_t Numbers[NUMBER_AMOUNT];
     uint8_t  NumbersAmount;
-    uint16_t TimeInterval;
+    uint8_t  TimeInterval;
     Data_t   Data[DATA_AMOUNT];
 }Info_t;
 

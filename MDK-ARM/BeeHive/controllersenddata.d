@@ -37,6 +37,7 @@ beehive\controllersenddata.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_
 beehive\controllersenddata.o: ../Core/Inc/sim800.h
 beehive\controllersenddata.o: ../Core/Inc/main.h
 beehive\controllersenddata.o: ../Core/Inc/ControllerIndication.h
+beehive\controllersenddata.o: ../Core/Inc/ControllerSMSCommand.h
 beehive\controllersenddata.o: ../Core/Inc/PDUConvert.h
 beehive\controllersenddata.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 beehive\controllersenddata.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h

@@ -13,6 +13,7 @@
 "beehive\main.o"
 "beehive\stm32f1xx_it.o"
 "beehive\stm32f1xx_hal_msp.o"
+"beehive\controllersmscommand.o"
 "beehive\stm32f1xx_hal_gpio_ex.o"
 "beehive\stm32f1xx_hal_i2c.o"
 "beehive\stm32f1xx_hal.o"

@@ -74,7 +74,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x6616847F)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x6616847F)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x6616847F)
 I (../Core/Inc/ControllerIndication.h)(0x6616256E)
-I (../Core/Inc/ControllerSendData.h)(0x6644A1DF)
+I (../Core/Inc/ControllerSendData.h)(0x66B34CFD)
 I (../Core/Inc/sim800c.h)(0x660F93FD)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x602569CC)
 I (../Core/Inc/led.h)(0x660F93FD)
@@ -195,10 +195,10 @@ I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x602569CE)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x602569C4)
 F (..\Core\Inc\fonts.h)(0x6614E672)()
 F (..\Core\Inc\ssd1306.h)(0x6614EFE6)()
-F (..\Core\Inc\ControllerSendData.h)(0x6644A1DF)()
+F (..\Core\Inc\ControllerSendData.h)(0x66B34CFD)()
 F (..\Core\Inc\ControllerIndication.h)(0x6616256E)()
-F (..\Core\Src\ControllerSendData.c)(0x6673E4A1)(--c99 -c --cpu Cortex-M3 -g -O1 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_BeeHive-IC:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\user\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o beehive\controllersenddata.o --omf_browse beehive\controllersenddata.crf --depend beehive\controllersenddata.d)
-I (../Core/Inc/ControllerSendData.h)(0x6644A1DF)
+F (..\Core\Src\ControllerSendData.c)(0x66BDDF53)(--c99 -c --cpu Cortex-M3 -g -O1 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_BeeHive-IC:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\user\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o beehive\controllersenddata.o --omf_browse beehive\controllersenddata.crf --depend beehive\controllersenddata.d)
+I (../Core/Inc/ControllerSendData.h)(0x66B34CFD)
 I (../Core/Inc/sim800c.h)(0x660F93FD)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x602569CC)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x6616847F)
@@ -232,10 +232,11 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x6616847F)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x6616847F)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x6616847F)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x6616847F)
-I (../Core/Inc/sim800.h)(0x66717383)
+I (../Core/Inc/sim800.h)(0x66BDE08B)
 I (../Core/Inc/main.h)(0x6667EB5A)
 I (../Core/Inc/ControllerIndication.h)(0x6616256E)
-I (../Core/Inc/PDUConvert.h)(0x6655BE91)
+I (../Core/Inc/ControllerSMSCommand.h)(0x669F966D)
+I (../Core/Inc/PDUConvert.h)(0x669F9663)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x602569CE)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x602569C4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x602569C4)
@@ -243,7 +244,7 @@ F (..\Core\Src\ControllerIndication.c)(0x6644A191)(--c99 -c --cpu Cortex-M3 -g -
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x602569C4)
 I (../Core/Inc/ControllerIndication.h)(0x6616256E)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x602569CE)
-I (../Core/Inc/ControllerSendData.h)(0x6644A1DF)
+I (../Core/Inc/ControllerSendData.h)(0x66B34CFD)
 I (../Core/Inc/sim800c.h)(0x660F93FD)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x602569CC)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x6616847F)
@@ -280,11 +281,11 @@ I (../Core/Inc/ssd1306.h)(0x6614EFE6)
 I (../Core/Inc/fonts.h)(0x6614E672)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x602569CE)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x602569C4)
-F (..\Core\Inc\sim800.h)(0x66717383)()
-F (..\Core\Src\sim800.c)(0x6673E343)(--c99 -c --cpu Cortex-M3 -g -O1 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_BeeHive-IC:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\user\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o beehive\sim800.o --omf_browse beehive\sim800.crf --depend beehive\sim800.d)
+F (..\Core\Inc\sim800.h)(0x66BDE08B)()
+F (..\Core\Src\sim800.c)(0x66BDE08B)(--c99 -c --cpu Cortex-M3 -g -O1 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_BeeHive-IC:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\user\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o beehive\sim800.o --omf_browse beehive\sim800.crf --depend beehive\sim800.d)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x602569CE)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x602569C4)
-I (../Core/Inc/sim800.h)(0x66717383)
+I (../Core/Inc/sim800.h)(0x66BDE08B)
 I (../Core/Inc/main.h)(0x6667EB5A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x6616847F)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x660F93FD)
@@ -317,14 +318,14 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x6616847F)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x6616847F)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x6616847F)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x6616847F)
+I (../Core/Inc/ControllerSendData.h)(0x66B34CFD)
+I (../Core/Inc/sim800c.h)(0x660F93FD)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x602569CC)
 I (../Core/Inc/ControllerIndication.h)(0x6616256E)
-I (../Core/Inc/ControllerSendData.h)(0x6644A1DF)
-I (../Core/Inc/sim800c.h)(0x660F93FD)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x602569CC)
 I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x602569C8)
-F (..\Core\Inc\PDUConvert.h)(0x6655BE91)()
-F (..\Core\Src\PDUConvert.c)(0x666C06E0)(--c99 -c --cpu Cortex-M3 -g -O1 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_BeeHive-IC:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\user\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o beehive\pduconvert.o --omf_browse beehive\pduconvert.crf --depend beehive\pduconvert.d)
-I (../Core/Inc/PDUConvert.h)(0x6655BE91)
+F (..\Core\Inc\PDUConvert.h)(0x669F9663)()
+F (..\Core\Src\PDUConvert.c)(0x66A0EFD8)(--c99 -c --cpu Cortex-M3 -g -O1 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_BeeHive-IC:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\user\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o beehive\pduconvert.o --omf_browse beehive\pduconvert.crf --depend beehive\pduconvert.d)
+I (../Core/Inc/PDUConvert.h)(0x669F9663)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x602569CC)
 I (../Core/Inc/sim800c.h)(0x660F93FD)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x6616847F)
@@ -358,8 +359,9 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x6616847F)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x6616847F)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x6616847F)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x6616847F)
-I (../Core/Inc/sim800.h)(0x66717383)
+I (../Core/Inc/sim800.h)(0x66BDE08B)
 I (../Core/Inc/main.h)(0x6667EB5A)
+I (../Core/Inc/ControllerSendData.h)(0x66B34CFD)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x602569CE)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x602569C4)
 F (../Core/Src/main.c)(0x6673E53E)(--c99 -c --cpu Cortex-M3 -g -O1 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_BeeHive-IC:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\user\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o beehive\main.o --omf_browse beehive\main.crf --depend beehive\main.d)
@@ -399,15 +401,15 @@ I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x602569CE)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x602569C4)
 I (../Core/Inc/led.h)(0x660F93FD)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x602569CC)
-I (../Core/Inc/sim800.h)(0x66717383)
+I (../Core/Inc/sim800.h)(0x66BDE08B)
+I (../Core/Inc/ControllerSendData.h)(0x66B34CFD)
+I (../Core/Inc/sim800c.h)(0x660F93FD)
 I (../Core/Inc/macros.h)(0x660F93FD)
 I (../Core/Inc/error_handler.h)(0x660F93FD)
 I (../Core/Inc/flash.h)(0x660F93FD)
 I (../Core/Inc/ssd1306.h)(0x6614EFE6)
 I (../Core/Inc/fonts.h)(0x6614E672)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x602569C4)
-I (../Core/Inc/ControllerSendData.h)(0x6644A1DF)
-I (../Core/Inc/sim800c.h)(0x660F93FD)
 I (../Core/Inc/ControllerIndication.h)(0x6616256E)
 F (../Core/Src/stm32f1xx_it.c)(0x6655C723)(--c99 -c --cpu Cortex-M3 -g -O1 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_BeeHive-IC:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\user\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o beehive\stm32f1xx_it.o --omf_browse beehive\stm32f1xx_it.crf --depend beehive\stm32f1xx_it.d)
 I (../Core/Inc/main.h)(0x6667EB5A)
@@ -444,7 +446,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x6616847F)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x6616847F)
 I (../Core/Inc/stm32f1xx_it.h)(0x6614E983)
 I (../Core/Inc/ControllerIndication.h)(0x6616256E)
-I (../Core/Inc/ControllerSendData.h)(0x6644A1DF)
+I (../Core/Inc/ControllerSendData.h)(0x66B34CFD)
 I (../Core/Inc/sim800c.h)(0x660F93FD)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x602569CC)
 F (../Core/Src/stm32f1xx_hal_msp.c)(0x6614EF6C)(--c99 -c --cpu Cortex-M3 -g -O1 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_BeeHive-IC:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\user\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o beehive\stm32f1xx_hal_msp.o --omf_browse beehive\stm32f1xx_hal_msp.crf --depend beehive\stm32f1xx_hal_msp.d)
@@ -480,6 +482,47 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x6616847F)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x6616847F)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x6616847F)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x6616847F)
+F (..\Core\Inc\ControllerSMSCommand.h)(0x669F966D)()
+F (..\Core\Src\ControllerSMSCommand.c)(0x66BDDFE3)(--c99 -c --cpu Cortex-M3 -g -O1 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_BeeHive-IC:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\user\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o beehive\controllersmscommand.o --omf_browse beehive\controllersmscommand.crf --depend beehive\controllersmscommand.d)
+I (../Core/Inc/ControllerSMSCommand.h)(0x669F966D)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x602569CE)
+I (../Core/Inc/ControllerSendData.h)(0x66B34CFD)
+I (../Core/Inc/sim800c.h)(0x660F93FD)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x602569CC)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x6616847F)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x660F93FD)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x6616847F)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x6616847F)
+I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x6616847F)
+I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h)(0x6616847F)
+I (../Drivers/CMSIS/Include/core_cm3.h)(0x66168477)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x66168477)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x66168477)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x66168477)
+I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h)(0x6616847F)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x6616847F)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x602569CE)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h)(0x6616847F)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h)(0x6616847F)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h)(0x6616847F)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_exti.h)(0x6616847F)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h)(0x6616847F)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma_ex.h)(0x6616847F)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h)(0x6616847F)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h)(0x6616847F)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h)(0x6616847F)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h)(0x6616847F)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x6616847F)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rtc.h)(0x6616847F)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rtc_ex.h)(0x6616847F)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x6616847F)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x6616847F)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x6616847F)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x6616847F)
+I (../Core/Inc/PDUConvert.h)(0x669F9663)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x602569CE)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x602569C4)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x602569C4)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c)(0x6616847F)(--c99 -c --cpu Cortex-M3 -g -O1 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_BeeHive-IC:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\user\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o beehive\stm32f1xx_hal_gpio_ex.o --omf_browse beehive\stm32f1xx_hal_gpio_ex.crf --depend beehive\stm32f1xx_hal_gpio_ex.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x6616847F)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x660F93FD)
